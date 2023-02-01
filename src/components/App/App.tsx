@@ -6,7 +6,7 @@ import ToDoList from "../ToDoList";
 import "./App.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<string[]>([]);
   const [text, setText] = useState<string>("");
 
   const toggleTask = (taskId: number) => {
