@@ -11,7 +11,7 @@ function App() {
 
   const toggleTask = (taskId: number) => {
     setTasks(() =>
-      tasks.map((task) => {
+      tasks.map((task: string, id: number) => {
         if (task.id !== taskId) return task;
 
         return {
