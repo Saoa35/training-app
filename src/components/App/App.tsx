@@ -6,12 +6,12 @@ import ToDoList from "../ToDoList";
 import "./App.css";
 
 function App() {
-  const [tasks, setTasks] = useState<JSX.Element[]>([]);
+  const [tasks, setTasks] = useState<any>([]);
   const [text, setText] = useState<string>("");
 
   const toggleTask = (taskId: number) => {
     setTasks(() =>
-      tasks.map((task) => {
+      tasks.map((task: any) => {
         if (task.id !== taskId) return task;
 
         return {
@@ -23,7 +23,7 @@ function App() {
   };
 
   const removeTask = (taskId: number) => {
-    setTasks(() => tasks.filter((task) => task.id !== taskId));
+    setTasks(() => tasks.filter((task: any) => task.id !== taskId));
   };
 
   const addTask = () => {

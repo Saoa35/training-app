@@ -3,7 +3,7 @@ import React from "react";
 interface InputProps {
   text: string;
   setText: React.Dispatch<React.SetStateAction<string>>;
-  addTask: () => string;
+  addTask: () => void;
 }
 
 const InputField: React.FC<InputProps> = ({ text, setText, addTask }) => {
