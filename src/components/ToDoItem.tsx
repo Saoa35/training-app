@@ -24,7 +24,11 @@ const ToDoItem: React.FC<ItemProps> = ({
       />
       <span style={{ fontSize: "18px", fontFamily: "cursive" }}>{text}</span>
       <span
-        style={{ color: "red", cursor: "pointer" }}
+        style={{
+          color: "red",
+          cursor: "pointer",
+          marginLeft: "10px",
+        }}
         onClick={() => removeTask(id)}
       >
         &times;
