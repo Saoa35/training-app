@@ -9,7 +9,7 @@ interface ListProps {
 
 const ToDoList: React.FC<ListProps> = ({ tasks, removeTask, toggleTask }) => {
   return (
-    <ul>
+    <ul style={{ textAlign: "center", listStyle: "none" }}>
       {tasks.map<JSX.Element>((task: any) => (
         <ToDoItem
           key={task.id}

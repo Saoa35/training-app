@@ -22,7 +22,7 @@ const ToDoItem: React.FC<ItemProps> = ({
         checked={completed}
         onChange={() => toggleTask(id)}
       />
-      <span>{text}</span>
+      <span style={{ fontSize: "18px", fontFamily: "cursive" }}>{text}</span>
       <span
         style={{ color: "red", cursor: "pointer" }}
         onClick={() => removeTask(id)}
