@@ -4,46 +4,54 @@ import React from "react";
 import InputField from "../InputField";
 import ToDoList from "../ToDoList";
 import "./App.css";
+import { useDispatch } from "react-redux/es/exports";
+import { addTask } from "../../store/todoSlice";
+// import {addTask}
 
 function App() {
-  const [tasks, setTasks] = useState<any>([]);
+  // const [tasks, setTasks] = useState<any>([]);
   const [text, setText] = useState<string>("");
+  const dispatch = useDispatch();
+
+  const addTodo = () => {
+    dispatch(addTask({ text }));
+    setText("");
+  };
 
   const toggleTask = (taskId: number) => {
-    setTasks(() =>
-      tasks.map((task: any) => {
-        if (task.id !== taskId) return task;
-
-        return {
-          ...task,
-          completed: !task.completed,
-        };
-      })
-    );
+    // setTasks(() =>
+    //   tasks.map((task: any) => {
+    //     if (task.id !== taskId) return task;
+    //     return {
+    //       ...task,
+    //       completed: !task.completed,
+    //     };
+    //   })
+    // );
   };
 
   const removeTask = (taskId: number) => {
-    setTasks(() => tasks.filter((task: any) => task.id !== taskId));
+    // setTasks(() => tasks.filter((task: any) => task.id !== taskId));
   };
 
-  const addTask = () => {
-    if (text.length) {
-      setTasks(() => [
-        ...tasks,
-        {
-          id: new Date().toISOString(),
-          text,
-          completed: false,
-        },
-      ]);
-      setText("");
-    }
-  };
+  // const addTask = () => {
+  //   if (text.length) {
+  //     setTasks(() => [
+  //       ...tasks,
+  //       {
+  //         id: new Date().toISOString(),
+  //         text,
+  //         completed: false,
+  //       },
+  //     ]);
+  //     setText("");
+  //   }
+  // };
 
   return (
     <div className="App">
-      <InputField text={text} setText={setText} addTask={addTask} />
-      <ToDoList tasks={tasks} removeTask={removeTask} toggleTask={toggleTask} />
+      <InputField text={text} setText={setText} addTask={addTodo} />
+      <ToDoList />
     </div>
   );
 }
