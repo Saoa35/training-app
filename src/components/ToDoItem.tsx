@@ -22,7 +22,16 @@ const ToDoItem: React.FC<ItemProps> = ({
         checked={completed}
         onChange={() => toggleTask(id)}
       />
-      <span style={{ fontSize: "18px", fontFamily: "cursive" }}>{text}</span>
+      <span
+        style={{
+          fontSize: "18px",
+          fontFamily: "cursive",
+          marginLeft: "8px",
+          // textDecoration: "lineThrough",
+        }}
+      >
+        {text}
+      </span>
       <span
         style={{
           color: "red",
