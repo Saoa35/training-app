@@ -6,10 +6,8 @@ import ToDoList from "../ToDoList";
 import "./App.css";
 import { useDispatch } from "react-redux/es/exports";
 import { addTask } from "../../store/todoSlice";
-// import {addTask}
 
 function App() {
-  // const [tasks, setTasks] = useState<any>([]);
   const [text, setText] = useState<string>("");
   const dispatch = useDispatch();
 
@@ -17,36 +15,6 @@ function App() {
     dispatch(addTask({ text }));
     setText("");
   };
-
-  const toggleTask = (taskId: number) => {
-    // setTasks(() =>
-    //   tasks.map((task: any) => {
-    //     if (task.id !== taskId) return task;
-    //     return {
-    //       ...task,
-    //       completed: !task.completed,
-    //     };
-    //   })
-    // );
-  };
-
-  const removeTask = (taskId: number) => {
-    // setTasks(() => tasks.filter((task: any) => task.id !== taskId));
-  };
-
-  // const addTask = () => {
-  //   if (text.length) {
-  //     setTasks(() => [
-  //       ...tasks,
-  //       {
-  //         id: new Date().toISOString(),
-  //         text,
-  //         completed: false,
-  //       },
-  //     ]);
-  //     setText("");
-  //   }
-  // };
 
   return (
     <div className="App">
@@ -56,7 +24,7 @@ function App() {
   );
 }
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //   const url = "https://randomuser.me/api";
 

@@ -1,26 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { removeTask, toggleTask } from "../store/todoSlice";
 
 interface ItemProps {
-  id: number;
+  id: string;
   text: string;
   completed: boolean;
-  toggleTask: (taskId: number) => void;
-  removeTask: (taskId: number) => void;
+  toggleTask: (taskId: string) => void;
+  removeTask: (taskId: string) => void;
 }
 
-const ToDoItem: React.FC<ItemProps> = ({
-  id,
-  text,
-  completed,
-  toggleTask,
-  removeTask,
-}) => {
+const ToDoItem: React.FC<ItemProps> = ({ id, text, completed }) => {
+  const dispatch = useDispatch();
+
   return (
     <li key={id}>
       <input
         type="checkbox"
         checked={completed}
-        onChange={() => toggleTask(id)}
+        onChange={() => dispatch(toggleTask({ id }))}
       />
       <span
         style={{
@@ -38,7 +36,7 @@ const ToDoItem: React.FC<ItemProps> = ({
           cursor: "pointer",
           marginLeft: "10px",
         }}
-        onClick={() => removeTask(id)}
+        onClick={() => dispatch(removeTask({ id }))}
       >
         &times;
       </span>
